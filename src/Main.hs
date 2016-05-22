@@ -2,7 +2,6 @@ import Connection
 import Control.Concurrent
 import Network.Socket
 
-
 main::IO()
 main = do
   sock <- socket AF_INET Stream defaultProtocol
@@ -15,4 +14,3 @@ connectionHandler sock = do
   (client, _) <- accept sock
   _ <- forkIO (startConn client)
   connectionHandler sock
-  
