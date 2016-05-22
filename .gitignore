@@ -1,4 +1,9 @@
-dist/
+dist/build/
+dist/setup*
+package.conf.inplace
 *~
 \#*\#
 .\#*
+.cabal-sandbox/
+cabal.sandbox.config
+
