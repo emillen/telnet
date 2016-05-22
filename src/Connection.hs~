@@ -1,0 +1,3 @@
+import Network.Socket
+
+module Connection

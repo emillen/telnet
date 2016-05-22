@@ -1,4 +1,7 @@
+import Connection
+import Control.Concurrent
 import Network.Socket
+
 
 main::IO()
 main = do
@@ -10,9 +13,6 @@ main = do
 connectionHandler :: Socket -> IO ()
 connectionHandler sock = do
   (client, _) <- accept sock
-  thingToPrint <- recv client 500
-  printTheShit thingToPrint
-
-printTheShit :: String -> IO ()
-printTheShit shitToPrint = do
-  putStr shitToPrint
+  _ <- forkIO (startConn client)
+  connectionHandler sock
+  
